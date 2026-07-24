@@ -1,0 +1,38 @@
+[project]
+name = "devinsight-backend"
+version = "0.1.0"
+description = "Production-grade AI Software Engineering Platform"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.139.2",
+    "uvicorn[standard]>=0.35.0",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.10.0",
+    "python-dotenv>=1.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.0",
+    "pytest>=8.4.0",
+    "pytest-asyncio>=1.1.0",
+    "httpx>=0.28.0",
+    "mypy>=1.17.0",
+    "pre-commit>=4.2.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
